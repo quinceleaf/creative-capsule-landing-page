@@ -1,0 +1,21 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "*"
+django-import-export = "*"
+python-dotenv = "*"
+python-ulid = "*"
+pytz = "*"
+mailchimp-marketing = "*"
+uwsgi = "*"
+psycopg2-binary = "*"
+
+[dev-packages]
+black = "==19.10b0"
+faker = "*"
+flake8 = "*"
+
+[requires]

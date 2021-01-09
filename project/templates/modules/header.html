@@ -1,0 +1,21 @@
+{% load static %}
+
+<div class="z-50">
+  <nav class="bg-white shadow shadow-md">
+    <div class="px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between md:h-20 h-12">
+        <div class="flex items-center">
+          {# START LOGO #}
+          <div class="flex-shrink-0">
+            <a href="{% url 'apps.landingpage:index' %}">
+              <img class="md:inline hidden" src="{% static 'img/creative-capsule-md.png' %}" height="44px" alt="Creative Capsule" />
+              <img class="md:hidden inline" src="{% static 'img/creative-capsule-sm.png' %}" height="16px" alt="Creative Capsule" />
+            </a>
+          </div>
+          {# END LOGO #}
+
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>

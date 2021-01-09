@@ -1,0 +1,34 @@
+# Planning
+documents
+
+# Miscellaneous
+*.pyc
+__pycache__
+.DS_Store
+settings.json
+
+# Virtualenv
+.venv
+
+# Static files (for deployment)
+staticfiles
+
+# Local development files
+.vscode
+dockerfile
+docker-run.sh
+docker-build.sh
+
+mysql-data/*
+postgres-data/*
+redis-data/*
+redis.conf
+jstools
+
+# Utility scripts
+scripts
+clear_migrations.sh
+pgweb.sh
+
+# Configuration files
+.env

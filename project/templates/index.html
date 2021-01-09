@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block body_block %}
+{% load static %}
+
+<style>
+      .image-left {
+        background-image: url("{% static 'img/layout_left.png' %}");  
+        background-position: top right ;
+        background-size: contain;
+        background-repeat: no-repeat;
+        z-index: -1;
+      }
+
+    .image-right {
+        background-image: url("{% static 'img/layout_right.png' %}");  
+        background-position: top left;
+        background-size: contain;
+        overflow-x: hidden;
+        background-repeat: no-repeat;
+        z-index: -1
+    }
+</style>
+
+    <div class="grid grid-cols-6 gap-0">
+
+        {# START IMAGE LEFT #}
+        <div class="col-span-2 row-span-2 image-left md:inline hidden"></div>
+        {# END IMAGE LEFT #}
+
+        {# START CONTENT #}
+        <div class="lg:col-span-2 md:col-span-3 col-span-full md:mt-10 mt-0 p-10">
+            
+            <div class="font-semibold text-3xl text-charcoal text-tracking-wide">
+                Здравствуйте, <span class="sm:hidden inline"><br></span>меня зовут Майя. 
+            </div>
+            <div class="mt-5 text-xl text-charcoal">
+                Я художник, дизайнер и педагог из Нью Йорка. Мне нравится обучать людей визуальному самовыражению и творческому мышлению — практикам, которые помогают быть счастливее и здоровее. 
+            </div>
+            <div class="mt-5 text-xl text-midgray">
+                В моей бесплатной рассылке вас ждут новые творческие задания, идеи и подборки вдохновляющего контента.
+            </div>
+            <div class="mt-8 space-y-6">
+                <form method="post" action="{% url 'apps.landingpage:index' %}">
+                    {% csrf_token %}
+            
+                    <div class="flex md:flex-row flex-col text-charcoal text-xl">
+                        <div class="flex-1 flex-grow">
+                            <label for="email" class="sr-only has-float-label">Email</label>
+                            <input id="email" name="email" type="email" autocomplete="email" required
+                                class="appearance-none rounded-none relative block w-full px-3 py-2 border border-palegray placeholder-palegray text-palegray rounded-lg focus:outline-none focus:ring-brandbutton focus:border-brandbutton focus:z-10 sm:text-sm"
+                                placeholder="адрес электронной почты">
+                        </div>
+                        <div class="md:ml-3 ml-0 md:mt-0 mt-3 flex-shrink min-w-1/4">
+                            <button type="submit"
+                                class="group relative w-full flex justify-center md:py-2 py-1 md:px-4 px-auto border border-transparent md:text-sm text-md font-medium rounded-md text-white bg-brandbutton hover:bg-blur-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brandbutton">
+                                Хочу рассылку!
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="mt-6 space-y-6 text-xl text-midgray">
+                А ещё, совсем скоро я объявлю набор на новый курс с углублённым изучением творческих инструментов для самопознания. Если хотите не пропустить начало – подписывайтесь на рассылку!
+            </div>
+            <div class="md:hidden block mt-4">
+                <img src="{% static 'img/layout_left.png' %}" />
+            </div>
+        </div>
+        {# END CONTENT #}
+
+        {# START IMAGE RIGHT #}
+        <div class="lg:col-span-2 col-span-0 image-right hidden"></div>
+        {# END IMAGE RIGHT #}
+
+    </div>
+    
+{% endblock %}

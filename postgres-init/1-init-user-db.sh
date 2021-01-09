@@ -1,0 +1,11 @@
+#! /bin/bash
+set -e
+
+psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-EOSQL
+    CREATE USER $APP_USER_NAME WITH PASSWORD '$APP_USER_PASSWORD';
+    CREATE DATABASE $APP_DB;
+    ALTER ROLE $APP_USER_NAME SET client_encoding TO 'utf8';
+    ALTER ROLE $APP_USER_NAME SET default_transaction_isolation TO 'read committed';
+    ALTER ROLE $APP_USER_NAME SET timezone TO 'UTC';
+    GRANT ALL PRIVILEGES ON DATABASE $APP_DB TO $APP_USER_NAME;
+EOSQL
